@@ -60,6 +60,9 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    acts_as_tenant (0.5.0)
+      rails (>= 5.2)
+      request_store (>= 1.0.5)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     bindex (0.8.1)
@@ -130,6 +133,9 @@ GEM
     pry (0.14.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    pry-byebug (3.8.0)
+      byebug (~> 11.0)
+      pry (~> 0.10)
     public_suffix (4.0.6)
     puma (5.2.2)
       nio4r (~> 2.0)
@@ -172,6 +178,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.1.1)
+    request_store (1.5.0)
+      rack (>= 1.4)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -228,14 +236,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_tenant
   bootsnap (>= 1.4.4)
-  byebug
   capybara (>= 3.26)
   guard
   guard-minitest
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
+  pry-byebug
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.3)
