@@ -18,6 +18,7 @@ running.
 ### Initial Configuration
 
 The first time you install the project locally
+
 ```
 rails db:create
 rails db:migrate
@@ -43,6 +44,7 @@ We use Minitest/Test::Unit and SystemTest.
 Guard enables us to have a very tight feedback loop by watching our files as we modify them.
 
 To launch Guard
+
 ```
 bundle exec guard
 ```
