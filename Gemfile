@@ -38,6 +38,7 @@ gem 'acts_as_tenant'
 
 
 group :development, :test do
+  gem 'capybara', '>= 3.26'
  gem 'pry-byebug'
   gem 'rspec-rails', '~> 5.0.0'
 end
@@ -63,6 +64,7 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   gem 'shoulda', '~> 4.0'
+  gem 'webdrivers'
   gem 'database_cleaner-active_record'
 end
 
