@@ -39,6 +39,7 @@ gem 'acts_as_tenant'
 
 group :development, :test do
  gem 'pry-byebug'
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do
@@ -49,6 +50,7 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'guard-rspec', require: false
   gem 'spring'
   gem 'guard'
 end
