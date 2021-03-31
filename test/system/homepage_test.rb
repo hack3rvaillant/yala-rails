@@ -5,5 +5,6 @@ class HomepageTest < ApplicationSystemTestCase
     visit root_path
 
     assert_selector 'h1', text: 'Yala'
+    assert_title 'Your'
   end
 end
