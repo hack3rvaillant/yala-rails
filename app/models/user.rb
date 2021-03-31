@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true
   validates :email,
-            format: { with: /A(.+)@(.+)z/, message: 'Email invalid' },
+            format: { with: URI::MailTo::EMAIL_REGEXP, message: 'Email invalid' },
             uniqueness: { case_sensitive: false },
             length: { minimum: 4, maximum: 254 }
 end
