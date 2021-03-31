@@ -32,6 +32,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 
 ### PROJECT SPECIFIC GEMS ###
+gem "devise", "~> 4.7"
 gem 'acts_as_tenant'
 
 
