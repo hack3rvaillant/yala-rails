@@ -1,0 +1,9 @@
+<% title 'Create a new learning community' %>
+<h1>Create a new learning community</h1>
+<%= form_with model: @community do |f| %>
+  <%= f.label :name, "Community name" %>
+  <%= f.text_field :name, placeholder: 'Les colibris' %>
+  <%= f.label :subdomain, "Subdomain" %>
+  <%= f.text_field :subdomain, placeholder: 'colibris' %>
+  <%= f.submit 'Create' %>
+<% end %>
