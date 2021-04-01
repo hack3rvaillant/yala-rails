@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resource :communities, only: %i[new create]
 
   constraints subdomain: /.*/ do
-    get "/onboarding", to: "onboarding#index", as: :onboarding
+    get '/onboarding', to: 'onboarding#index', as: :onboarding
   end
 end

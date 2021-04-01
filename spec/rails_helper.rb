@@ -4,13 +4,14 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'rspec/rails'
 require 'capybara/rails'
-require_relative './support/factory_bot.rb'
-require_relative './support/database_cleaner.rb'
+require_relative './support/factory_bot'
+require_relative './support/database_cleaner'
+require_relative './support/capybara'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -35,7 +36,6 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
-
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
