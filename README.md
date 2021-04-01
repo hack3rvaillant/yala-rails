@@ -2,7 +2,6 @@
 
 # YALA!
 > Your Awesome Learning Adventure
-
 Create an online learning community for your organization.
 
 ## Installing / Getting started
@@ -51,12 +50,12 @@ bundle exec guard
 
 To manually launch the test
 ```
-bundle exec rails test
+bundle exec rspec spec/
 ```
 
-To manually launch SystemTest
+To manually launch e2e tests
 ```
-bundle exec rails test:system
+bundle exec rails spec/feature
 ```
 
 ### Deploying / Publishing
@@ -65,7 +64,6 @@ In case there's some step you have to take that publishes this project to a
 server, this is the right time to state it.
 
 ```shell
-packagemanager deploy awesome-project -s server.com -u username -p password
 ```
 
 And again you'd need to tell what the previous code actually does.
@@ -74,9 +72,10 @@ And again you'd need to tell what the previous code actually does.
 
 Create your online learning community
 * Forum to ask and answer question
-* LMS to Learning from already made path
-* Mentoring
+* LMS to Learn from already made paths
+* Follow Up with a Facilitator
 * Peer Learning
+* Chat
 
 ## Contributing
 
