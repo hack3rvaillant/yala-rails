@@ -5,4 +5,13 @@ module ApplicationHelper
       text
     end
   end
+
+  def flashes
+    %i[notice error info success].map do |f|
+      {
+        type: f,
+        content: flash[f]
+      }
+    end
+  end
 end

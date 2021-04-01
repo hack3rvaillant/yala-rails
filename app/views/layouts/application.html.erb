@@ -2,6 +2,10 @@
 <html>
   <head>
     <title><%= "#{yield(:title)} | " || "" %>YALA</title>
+    <meta
+      name="description"
+      content="Create an online learning community for your organization. Your Awesome Learning Adventure just starts here"
+    >
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +15,11 @@
   </head>
 
   <body>
+    <% flashes.each do |f| %>
+      <% if f[:content] %>
+        <p class=<%= f[:content] %>><%= f[:content] %></p>
+      <% end %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

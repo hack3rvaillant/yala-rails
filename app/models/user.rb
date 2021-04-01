@@ -5,8 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :username, presence: true
+  validates :community, presence: true
   validates :email,
-            format: { with: URI::MailTo::EMAIL_REGEXP, message: 'Email invalid' },
-            uniqueness: { case_sensitive: false },
-            length: { minimum: 4, maximum: 254 }
+    format: { with: URI::MailTo::EMAIL_REGEXP, message: 'format invalid' }
+  acts_as_tenant :community
+  # validates_uniqueness_to_tenant :email, case_sensitive: false
 end

@@ -3,5 +3,6 @@ FactoryBot.define do
     username { 'hanaeB' }
     email { 'hanae@douar.tech' }
     password { 'p@$$w0rD' }
+    association :community
   end
 end

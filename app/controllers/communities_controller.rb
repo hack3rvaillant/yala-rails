@@ -1,20 +1,17 @@
+require_relative '../interactions/communities/create.rb'
 class CommunitiesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[new create]
   def new
-    @community = Community.new
+    @community = CreateCommunityAndFirstUser.new
   end
 
   def create
-    @community = Community.new(community_params)
-    if @community.save
-      redirect_to onboarding_path
+    @community = CreateCommunityAndFirstUser.run(params[:community])
+    if @community.valid?
+      flash[:notice] = "Well done! You are now the administrator of the #{@community.name} Learning Community"
+      redirect_to onboarding_path, subdomain: params[:community][:subdomain]
     else
       render :new
     end
-  end
-
-  private
-
-  def community_params
-    params.require(:community).permit(%i[name subdomain])
   end
 end
