@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
-class OnboardingController < ApplicationController
+class OnboardingController < TenantController
   skip_before_action :authenticate_user!, only: %i[index]
 
   def index
-    @community = current_tenant
-    @user = current_tenant.users.first
+    @community = ActsAsTenant.current_tenant
+    @user = @community.users.first
+    @user
   end
 end

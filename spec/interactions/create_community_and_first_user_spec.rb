@@ -45,13 +45,4 @@ RSpec.describe CreateCommunityAndFirstUser do
       expect(described_class.new(name: 'srta', subdomain: 'sart', username: 'sart', email: 'sratrs', password: 'satrssrarta')).to be_invalid
     end
   end
-
-  context 'When email is already taken' do
-    let!(:user) { create(:user) }
-    it 'Is invalid' do
-      interaction = described_class.run(name: 'srta', subdomain: 'sart', username: 'sart', email: user.email, password: 'satrssrta')
-      expect(interaction.errors.messages[:email]).to eq ["is already taken"]
-      expect(interaction).to be_invalid
-    end
-  end
 end

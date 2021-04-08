@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_134742) do
 
   create_table "communities", force: :cascade do |t|
     t.string "subdomain"
+    t.string "domain"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -31,10 +32,11 @@ ActiveRecord::Schema.define(version: 2021_04_01_134742) do
     t.string "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "community_id"
+    t.bigint "community_id"
     t.index ["community_id"], name: "index_users_on_community_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "users", "communities"
 end

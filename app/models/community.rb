@@ -3,6 +3,7 @@ class Community < ApplicationRecord
   validates :subdomain, presence: true
   validates :subdomain, uniqueness: true
   validates :subdomain, exclusion: { in: Subdomain::BLACKLIST }
+  #TODO, validates :domain, format: {}
 
   has_many :users, dependent: :destroy
 end

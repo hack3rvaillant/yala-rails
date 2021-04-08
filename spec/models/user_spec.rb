@@ -26,12 +26,24 @@ RSpec.describe User do
     end
 
     context 'When a user has an account with the same email on another community' do
-      let!(:other_community) { create(:community, id: 42, subdomain: 'douartech') }
-      let!(:user) { create(:user, email: 'same@email.com', community: other_community) }
-      let!(:current_community) { create(:community, id: 43, subdomain: 'hameauxlegers' ) }
+      let(:other_community) { create(:community, id: 42, subdomain: 'douar', name: 'Douar Tech') }
+      let(:current_community) { create(:community, id: 43, subdomain: 'hameauxlegers', name: 'Hameaux Légers') }
+      let(:user) { create(:user, email: 'same@email.com', community: ActsAsTenant.current_tenant) }
       it 'should be valid' do
-        binding.pry
+        ActsAsTenant.current_tenant = other_community
+        user
+        ActsAsTenant.current_tenant = current_community
         expect(build(:user, email: 'same@email.com', community: current_community)).to be_valid
+      end
+    end
+
+    context 'When a user has an account with the same email within the same community' do
+      let(:same_community) { create(:community, id: 42, subdomain: 'douar', name: 'Douar Tech') }
+      let(:user) { create(:user, email: 'same@email.com', community: ActsAsTenant.current_tenant) }
+      it 'should be valid' do
+        ActsAsTenant.current_tenant = same_community
+        user
+        expect(build(:user, email: 'same@email.com', community: same_community)).to be_invalid
       end
     end
   end

@@ -11,6 +11,8 @@ require 'rspec/rails'
 require 'capybara/rails'
 require_relative './support/factory_bot'
 require_relative './support/database_cleaner'
+require_relative './support/request_subdomain_helpers'
+require_relative './support/feature_subdomain_helpers'
 require_relative './support/capybara'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -73,4 +75,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include Capybara::DSL
+  config.extend RequestSubdomainHelpers, type: :request
+  config.extend FeatureSubdomainHelpers, type: :feature
 end
