@@ -37,6 +37,9 @@ gem 'devise', '~> 4.7'
 # This is a framework to handle business logic aka service object procedures
 gem 'active_interaction', '~> 4.0'
 
+gem "strong_migrations", "~> 0.7.6"
+
+
 group :development, :test do
   gem 'capybara', '>= 3.26'
   gem 'factory_bot_rails'
@@ -70,3 +73,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
