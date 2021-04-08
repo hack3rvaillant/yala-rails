@@ -59,6 +59,7 @@ group :development do
   gem 'guard'
   gem 'guard-rspec', require: false
   gem 'spring'
+  gem 'bullet'
 end
 
 group :test do
