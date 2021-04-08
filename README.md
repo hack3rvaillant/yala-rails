@@ -58,6 +58,10 @@ To manually launch e2e tests
 bundle exec rails spec/feature
 ```
 
+Yala is a multi-tenant app so you must always set the tenant when writing a test.
+For request specs use `ActsAsTenant.test_tenant=`
+For other specs use `ActsAsTenant.current_tenant=`
+
 ### Deploying / Publishing
 
 In case there's some step you have to take that publishes this project to a

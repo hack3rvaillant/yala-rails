@@ -13,6 +13,7 @@
 # it.
 #
 require 'capybara/rspec'
+require_relative './support/acts_as_tenant'
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
