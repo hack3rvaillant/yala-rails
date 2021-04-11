@@ -2,7 +2,7 @@
 
 # YALA!
 > Your Awesome Learning Adventure
-Create an online learning community for your organization.
+A safe place for your community to grow and learn together
 
 ## Installing / Getting started
 
