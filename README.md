@@ -39,7 +39,7 @@ packagemanager install
 And state what happens step-by-step.
 
 ## Testing
-We use Minitest/Test::Unit and SystemTest.
+We use RSpec and Capybara.
 Guard enables us to have a very tight feedback loop by watching our files as we modify them.
 
 To launch Guard
