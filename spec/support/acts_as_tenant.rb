@@ -1,7 +1,7 @@
 RSpec.configure do |config|
   config.before(:suite) do |example|
     # Make the default tenant globally available to the tests
-    $default_community = Community.create!(name: 'Global Test Community', subdomain: 'community', domain: 'community.dev')
+    $default_community = Community.create!(name: "Global Test Community", subdomain: "community", domain: "community.dev")
   end
 
   config.before(:each) do |example|

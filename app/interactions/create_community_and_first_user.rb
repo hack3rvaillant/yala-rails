@@ -4,7 +4,7 @@ class CreateCommunityAndFirstUser < ActiveInteraction::Base
 
   validates :name, :subdomain, :username, :email, :password, presence: true
   validates :email,
-            format: { with: URI::MailTo::EMAIL_REGEXP, message: 'format invalid' }
+    format: {with: URI::MailTo::EMAIL_REGEXP, message: "format invalid"}
 
   def execute
     ActiveRecord::Base.transaction do

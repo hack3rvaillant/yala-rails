@@ -1,4 +1,4 @@
-require_relative '../interactions/create_community_and_first_user'
+require_relative "../interactions/create_community_and_first_user"
 class CommunitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[new create]
   def new

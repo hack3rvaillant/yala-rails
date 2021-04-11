@@ -6,7 +6,7 @@ class TenantController < ApplicationController
 
   def find_community
     subdomain = request.subdomains.last
-    subquery = subdomain.present? ? { subdomain: subdomain&.downcase } : { domain: request.domain&.downcase }
+    subquery = subdomain.present? ? {subdomain: subdomain&.downcase} : {domain: request.domain&.downcase}
     tenant = Community.where(subquery).first
     tenant = Community.last if Rails.env.test? && tenant.nil?
     set_current_tenant(tenant)
