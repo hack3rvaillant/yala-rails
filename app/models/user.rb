@@ -9,6 +9,4 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :email,
     format: { with: URI::MailTo::EMAIL_REGEXP, message: 'format invalid' }
-
-  # validates_uniqueness_to_tenant :email, case_sensitive: false
 end
