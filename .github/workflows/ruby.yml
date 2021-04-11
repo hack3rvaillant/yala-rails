@@ -1,35 +1,72 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
-# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+name: Test
 
-name: Ruby
-
+# triggers on
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  - push
+  - pull_request_target
 
 jobs:
   test:
-
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        ruby-version: ['2.7.3']
-
+    env:
+      RAILS_ENV: test
+      NODE_ENV: test
+      # CI: 'true'
+    runs-on: ubuntu-latest # runner
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
-      uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
-      with:
-        ruby-version: ${{ matrix.ruby-version }}
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - name: Run tests
-      run: bundle exec rspec spec/
+      - name: Checkout repository # copies repo in runner
+        uses: actions/checkout@v2 # short for https://github.com/actions/checkout
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1 # short for https://github.com/ruby/setup-ruby
+        with:
+          # runs 'bundle install' and caches installed gems automatically
+          bundler-cache: true
+      - name: Get Node.js version
+        id: nvm
+        run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "${{ steps.nvm.outputs.NODE_VERSION }}"
+      - name: Get Yarn cache directory path
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Setup cache key and directory for node_modules cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      - name: Yarn install
+        run: yarn install --frozen-lockfile
+      - name: Prepare DB
+        run: |
+          cp config/database.github.yml config/database.yml
+          bundle exec rails db:create db:migrate
+      - name: Run tests
+        run: bundle exec rspec --format RspecJunitFormatter --out rspec.xml
+      # - name: Codecov
+      #   uses: codecov/codecov-action@v1.3.2
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: always()
+        with:
+          files: rspec.xml
+      - name: Brakeman action
+        uses: artplan1/brakeman-action@v1.2.1
