@@ -71,6 +71,7 @@ group :test do
   gem 'database_cleaner-active_record'
   gem 'simplecov', require: false
   gem "rspec_junit_formatter"
+  gem 'apparition'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -67,6 +67,9 @@ GEM
       request_store (>= 1.0.5)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    apparition (0.6.0)
+      capybara (~> 3.13, < 4)
+      websocket-driver (>= 0.6.5)
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.7.2)
@@ -310,6 +313,7 @@ PLATFORMS
 DEPENDENCIES
   active_interaction (~> 4.0)
   acts_as_tenant
+  apparition
   bootsnap (>= 1.4.4)
   bullet
   capybara (>= 3.26)
