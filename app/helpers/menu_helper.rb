@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 # Here are the helper methods that are useful for the whole application
 
-require 'ostruct'
+require "ostruct"
 
 module MenuHelper
   MAIN_MENU_ITEMS =
@@ -9,10 +10,10 @@ module MenuHelper
       {
         label: "About",
         path: "/about"
-      },{
+      }, {
         label: "Contact",
         path: "/contact"
-      },{
+      }, {
         label: "Home",
         path: "/"
       }

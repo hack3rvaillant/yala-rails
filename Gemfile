@@ -82,4 +82,4 @@ gem "view_component", "~> 2.30"
 gem "kramdown", "~> 2.3"
 
 gem "pundit", "~> 2.1"
-gem 'rolify'
+gem "rolify"

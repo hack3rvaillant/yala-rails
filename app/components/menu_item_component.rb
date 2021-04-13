@@ -8,6 +8,6 @@ class MenuItemComponent < ViewComponent::Base
   end
 
   def state_class
-    @active ? 'menu-item active' : 'menu-item'
+    @active ? "menu-item active" : "menu-item"
   end
 end
