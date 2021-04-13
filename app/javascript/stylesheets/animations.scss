@@ -1,0 +1,8 @@
+.hide-delay-6 {
+  animation: disappear 2s 6s forwards;
+  opacity: 1;
+}
+
+@keyframes disappear {
+  to   { opacity: 0; }
+}

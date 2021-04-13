@@ -1,0 +1,31 @@
+.btn {
+  @apply items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg md:py-4 md:text-lg md:px-10;
+
+  &-brand {
+    @extend .btn;
+    @apply text-brand bg-brand-lite;
+  }
+
+  &-accent {
+    @extend .btn;
+    @apply text-accent bg-accent-lite;
+  }
+
+  &-warning {
+    @extend .btn;
+    @apply text-warning bg-warning-lite;
+  }
+
+  &-success {
+    @extend .btn;
+    @apply text-success bg-success-lite;
+  }
+
+  &-info {
+    @extend .btn;
+    @apply text-info bg-info-lite;
+  }
+}
+
+
+

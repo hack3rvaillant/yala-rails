@@ -1,0 +1,28 @@
+.title {
+  @apply font-extrabold text-black;
+  @apply text-3xl sm:text-xl sm:tracking-tight lg:text-4xl;
+
+  &-xl {
+    @extend .title;
+    @apply text-5xl sm:text-4xl sm:tracking-tight lg:text-6xl;
+  }
+
+  &-lg {
+    @extend .title;
+    @apply text-4xl sm:text-3xl sm:tracking-tight lg:text-5xl;
+  }
+
+  &-base {
+    @extend .title;
+  }
+
+  &-sm {
+    @extend .title;
+    @apply text-2xl sm:text-2xl sm:tracking-tight lg:text-3xl;
+  }
+
+  &-xs {
+    @extend .title;
+    @apply text-xl sm:text-xl sm:tracking-tight lg:text-2xl;
+  }
+}
