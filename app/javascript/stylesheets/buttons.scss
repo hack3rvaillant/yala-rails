@@ -3,7 +3,7 @@
 
   &-brand {
     @extend .btn;
-    @apply text-brand bg-brand-lite;
+    @apply text-brand-darker bg-brand-lite hover:bg-brand;
   }
 
   &-accent {
