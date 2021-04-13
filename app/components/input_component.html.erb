@@ -1,6 +1,0 @@
-<%= label_tag @name, @label, class: "text-gray-dark" %>
-<% if text? %>
-  <%= text_field_tag(@name, @value, placeholder: @placeholder, class: "input") %>
-<% elsif password? %>
-  <%= password_field_tag(@name, @value, placeholder: @placeholder, class: "input") %>
-<% end %>
