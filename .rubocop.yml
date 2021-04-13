@@ -10,21 +10,21 @@ AllCops:
 Bundler/DuplicatedGem:
   Enabled: true
   Include:
-    - '**/*.gemfile'
-    - '**/Gemfile'
-    - '**/gems.rb'
+    - "**/*.gemfile"
+    - "**/Gemfile"
+    - "**/gems.rb"
 
 Bundler/InsecureProtocolSource:
   Enabled: true
   Include:
-    - '**/*.gemfile'
-    - '**/Gemfile'
-    - '**/gems.rb'
+    - "**/*.gemfile"
+    - "**/Gemfile"
+    - "**/gems.rb"
 
 Gemspec/DuplicatedAssignment:
   Enabled: true
   Include:
-    - '**/*.gemspec'
+    - "**/*.gemspec"
 
 Layout/AccessModifierIndentation:
   Enabled: true
@@ -984,11 +984,11 @@ Style/PercentLiteralDelimiters:
   Enabled: true
   PreferredDelimiters:
     default: ()
-    '%i': '[]'
-    '%I': '[]'
-    '%r': '{}'
-    '%w': '[]'
-    '%W': '[]'
+    "%i": "[]"
+    "%I": "[]"
+    "%r": "{}"
+    "%w": "[]"
+    "%W": "[]"
 
 Style/Proc:
   Enabled: true

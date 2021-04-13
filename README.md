@@ -2,8 +2,9 @@
 ![Logo of the project](https://raw.githubusercontent.com/jehna/readme-best-practices/master/sample-logo.png)
 
 # YALA!
+
 > Your Awesome Learning Adventure
-A safe place for your community to grow and learn together
+> A safe place for your community to grow and learn together
 
 ## Installing / Getting started
 
@@ -40,6 +41,7 @@ packagemanager install
 And state what happens step-by-step.
 
 ## Testing
+
 We use RSpec and Capybara.
 Guard enables us to have a very tight feedback loop by watching our files as we modify them.
 
@@ -50,11 +52,13 @@ bundle exec guard
 ```
 
 To manually launch the test
+
 ```
 bundle exec rspec spec/
 ```
 
 To manually launch e2e tests
+
 ```
 bundle exec rails spec/feature
 ```
@@ -69,6 +73,7 @@ In case there's some step you have to take that publishes this project to a
 server, this is the right time to state it.
 
 ```shell
+
 ```
 
 And again you'd need to tell what the previous code actually does.
@@ -76,11 +81,12 @@ And again you'd need to tell what the previous code actually does.
 ## Features
 
 Create your online learning community
-* Forum to ask and answer question
-* LMS to Learn from already made paths
-* Follow Up with a Facilitator
-* Peer Learning
-* Chat
+
+- Forum to ask and answer question
+- LMS to Learn from already made paths
+- Follow Up with a Facilitator
+- Peer Learning
+- Chat
 
 ## Contributing
 
@@ -113,7 +119,6 @@ links to humans using your project. You can include links like:
 - Related projects:
   - Your other project: https://github.com/your/other-project/
   - Someone else's project: https://github.com/someones/awesome-project/
-
 
 ## Licensing
 
