@@ -1,0 +1,13 @@
+<nav class="navbar">
+  <%= render ContainerComponent.new(classes: "px-4") do %>
+    <div class="flex">
+      <%= render NavLogoComponent.new %>
+      <ul class="menu">
+        <% @menu_items.each do |item| %>
+          <%= render MenuItemComponent.new(label: item.label, active: false, path: item.path) %>
+        <% end %>
+        <%#= render AccountDropdownComponent.new(@user) %>
+      </ul>
+    </div>
+  <% end %>
+</nav>
