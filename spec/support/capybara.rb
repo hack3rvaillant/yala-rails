@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
-# Capybara.default_driver = :selenium_chrome
 require "capybara/apparition"
+
+Capybara.register_driver :apparition_debug do |app|
+  Capybara::Apparition::Driver.new(app, inspector: true, headless: false)
+end
+
+
+Capybara.default_driver = :apparition
 Capybara.javascript_driver = :apparition
