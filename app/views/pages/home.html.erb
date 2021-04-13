@@ -1,6 +1,11 @@
 <% title 'Your Awesome Learning adventure | YALA' %>
-<h1>Yala</h1>
-<h2>Create an online learning community for your organization.</h2>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<%= link_to  "Create my learning community", new_communities_path %>
+<%= render ContainerComponent.new do %>
+  <%= render SectionComponent.new(layout: :center) do %>
+    <%= render TitleComponent.new(size: 'xl', classes: "mb-10") do %>
+      A safe place for your community to grow and learn together
+    <% end %>
+    <%= render ButtonComponent.new(path: new_communities_path, style: 'brand') do %>
+      Create my learning community
+    <% end %>
+  <% end %>
+<% end %>
