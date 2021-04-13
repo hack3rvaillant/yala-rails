@@ -78,3 +78,5 @@ end
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 gem "view_component", "~> 2.30"
+
+gem "kramdown", "~> 2.3"
