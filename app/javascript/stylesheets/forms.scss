@@ -1,11 +1,10 @@
-.form{
-  .form-group{
+.form {
+  .form-group {
   }
 
   .input {
     @apply font-bold w-full border border-gray-lite px-5 py-3 placeholder-gray-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-lite focus:ring-white rounded-lg;
   }
   .label {
-    
   }
 }
