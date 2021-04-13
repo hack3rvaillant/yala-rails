@@ -4,7 +4,7 @@
     <title><%= "#{yield(:title)} | " || "" %>YALA</title>
     <meta
       name="description"
-      content="Create an online learning community for your organization. Your Awesome Learning Adventure just starts here"
+      content="A safe place for your community to grow and learn together. Your Awesome Learning Adventure just starts here"
     >
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -12,11 +12,12 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>        <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
   <body>
+    <%= render NavbarComponent.new(user: current_user, main_menu_items: main_menu_items) %>
     <% flashes.each do |f| %>
       <% if f[:content] %>
         <p class=<%= f[:content] %>><%= f[:content] %></p>
