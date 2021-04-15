@@ -1,5 +1,6 @@
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
-[![Test](https://github.com/hack3rvaillant/yala-rails/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/hack3rvaillant/yala-rails/actions/workflows/test.yml)
+[![Automated Tests](https://github.com/hack3rvaillant/yala-rails/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/hack3rvaillant/yala-rails/actions/workflows/test.yml)
+[![Code Quality](https://github.com/hack3rvaillant/yala-rails/actions/workflows/quality.yml/badge.svg)](https://github.com/hack3rvaillant/yala-rails/actions/workflows/quality.yml)
 
 ![Logo of the project](https://raw.githubusercontent.com/jehna/readme-best-practices/master/sample-logo.png)
 
