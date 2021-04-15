@@ -8,34 +8,16 @@
 
 ## Installing / Getting started
 
-A quick introduction of the minimal setup you need to get a hello world up &
-running.
-
-```
-  git fork
-  git clone
-```
-
-### Initial Configuration
-
-The first time you install the project locally
-
-```
-rails db:create
-rails db:migrate
-bundle install
-yarn install
-```
-
-## Developing
-
 Here's a brief intro about what a developer must do in order to start developing
 the project further:
 
 ```shell
-git clone https://github.com/your/awesome-project.git
-cd awesome-project/
-packagemanager install
+git clone git@github.com:hack3rvaillant/yala-rails.git
+cd yala-rails/
+rails db:create
+rails db:migrate
+bundle install
+yarn install
 ```
 
 And state what happens step-by-step.
