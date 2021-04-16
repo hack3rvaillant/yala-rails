@@ -22,6 +22,7 @@ class CreateCommunityAndFirstUser < ActiveInteraction::Base
           password: password,
           username: username
         )
+        user.add_role(:admin, community)
       end
 
       errors.merge!(user.errors) && raise(ActiveRecord::Rollback) unless user.save

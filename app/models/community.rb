@@ -1,4 +1,5 @@
 class Community < ApplicationRecord
+  resourcify
   validates :name, presence: true
   validates :subdomain, presence: true
   validates :subdomain, uniqueness: true
