@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   constraints subdomain: /.*/ do
     get "/onboarding", to: "onboarding#index", as: :onboarding
+
+    get "/admin",  to: "dashboards#admin"
   end
 end
