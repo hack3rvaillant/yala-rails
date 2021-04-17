@@ -2,7 +2,7 @@
   .form-group {
     @apply py-2;
     .errors-list {
-      @apply text-error
+      @apply text-error;
     }
   }
 
@@ -13,7 +13,7 @@
     @apply font-bold w-full border border-gray-400 px-5 py-3 placeholder-gray-700 outline-none ring-2 ring-offset-2 ring-offset-error ring-error rounded-lg;
   }
   .input::placeholder {
-    @apply text-gray-400
+    @apply text-gray-400;
   }
   .label {
     @apply text-gray-700 text-lg;

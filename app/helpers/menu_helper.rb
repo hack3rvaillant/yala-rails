@@ -16,6 +16,9 @@ module MenuHelper
       }, {
         label: "Home",
         path: "/"
+      }, {
+        label: "Sign Up",
+        path: "/users/sign_up"
       }
     ]
 
