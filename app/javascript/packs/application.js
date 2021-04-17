@@ -8,7 +8,12 @@ import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
+import { focusErrorField } from "../scripts/focus_error_field"
 
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
+
+document.addEventListener("turbolinks:load", () => {
+  focusErrorField()
+})

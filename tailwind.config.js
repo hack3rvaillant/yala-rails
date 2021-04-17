@@ -29,7 +29,7 @@ module.exports = {
       accent: colors.emerald[500],
       info: colors.cyan[500],
       warning: colors.orange[500],
-      error: colors.fuchsia[500],
+      error: colors.red[500],
       success: colors.green[500],
       "brand-darker": colors.amber[900],
       "accent-darker": colors.emerald[900],
