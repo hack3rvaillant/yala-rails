@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 2021_04_13_144823) do
   end
 
   create_table "communities", force: :cascade do |t|
-    t.string "subdomain"
-    t.string "domain"
+    t.string "slug"
+    t.string "custom_domain"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
