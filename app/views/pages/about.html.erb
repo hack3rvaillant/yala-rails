@@ -1,2 +1,7 @@
 <%= title "About" %>
-<%= sanitize @content %>
+
+<%= render ContainerComponent.new do %>
+  <div class="px-8 py-4 prose mx-auto">
+    <%= sanitize @content %>
+  </div>
+<% end %>

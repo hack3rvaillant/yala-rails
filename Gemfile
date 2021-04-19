@@ -83,3 +83,7 @@ gem "kramdown", "~> 2.3"
 
 gem "pundit", "~> 2.1"
 gem "rolify"
+
+gem "kramdown-syntax-coderay", "~> 1.0"
+
+gem "coderay", "~> 1.1"

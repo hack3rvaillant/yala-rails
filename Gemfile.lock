@@ -138,6 +138,9 @@ GEM
       activesupport (>= 5.0.0)
     kramdown (2.3.1)
       rexml
+    kramdown-syntax-coderay (1.0.1)
+      coderay (~> 1.1)
+      kramdown (~> 2.0)
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -347,6 +350,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   bullet
   capybara (>= 3.26)
+  coderay (~> 1.1)
   database_cleaner-active_record
   devise (~> 4.7)
   dotenv-rails (~> 2.7)
@@ -355,6 +359,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.7)
   kramdown (~> 2.3)
+  kramdown-syntax-coderay (~> 1.0)
   listen (~> 3.3)
   pg (~> 1.1)
   pry-byebug
