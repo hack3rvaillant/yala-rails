@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DashboardsController < TenantController
+class DashboardsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[admin]
 
   def admin
