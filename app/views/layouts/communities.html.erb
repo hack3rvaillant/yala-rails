@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= "#{yield(:title)} | " || "" %>YALA</title>
+    <meta
+      name="description"
+      content="A safe place for your community to grow and learn together. Your Awesome Learning Adventure just starts here"
+    >
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>        <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    Communities Layout
+
+    <div>
+      <%= link_to  "Sign Up", community_sign_up_path(community_slug: ActsAsTenant.current_tenant.slug) %>
+      <%= link_to  "Login", community_login_path(community_slug: ActsAsTenant.current_tenant.slug) %>
+    </div>
+
+    <% flashes.each do |f| %>
+      <% if f[:content] %>
+        <p class="<%= f[:content] %>"><%= f[:content] %></p>
+      <% end %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

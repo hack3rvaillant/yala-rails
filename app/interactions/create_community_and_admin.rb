@@ -1,8 +1,8 @@
-class CreateCommunityAndFirstUser < ActiveInteraction::Base
-  string :name, :subdomain, :username, :email, :password
+class CreateCommunityAndAdmin < ActiveInteraction::Base
+  string :name, :slug, :username, :email, :password
   attr_accessor :community, :user
 
-  validates :name, :subdomain, :username, :email, :password, presence: true
+  validates :name, :slug, :username, :email, :password, presence: true
   validates :email,
     format: {with: URI::MailTo::EMAIL_REGEXP, message: "format invalid"}
 
@@ -10,7 +10,7 @@ class CreateCommunityAndFirstUser < ActiveInteraction::Base
     ActiveRecord::Base.transaction do
       self.community = Community.new(
         name: name,
-        subdomain: subdomain
+        slug: slug
       )
 
       errors.merge!(community.errors) && raise(ActiveRecord::Rollback) unless community.save

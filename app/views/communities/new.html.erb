@@ -4,9 +4,9 @@
     Create a new learning community
   <% end %>
 
-  <%= yala_form_with model: @community, url: communities_path, scope: :community, class: "form flex flex-col max-w-xl mx-auto" do |f| %>
+  <%= yala_form_with model: @community_and_admin, url: communities_path, scope: :community, class: "form flex flex-col max-w-xl mx-auto" do |f| %>
     <%= f.labelled_text_field :name, class: "input", placeholder: "Oasis Learning", label: 'Name' %>
-    <%= f.labelled_text_field :subdomain, class: "input", placeholder: "oasis", label: 'Subdomain' %>
+    <%= f.labelled_text_field :slug, class: "input", placeholder: "oasis-learning", label: 'Slug' %>
     <%= f.labelled_text_field :username, class: "input", placeholder: "keziah82", label: 'Username' %>
     <%= f.labelled_email_field :email, class: "input", placeholder: "keziah@oasis-learning.com", label: 'Email' %>
     <%= f.labelled_password_field :password, class: "input", placeholder: "*********", label: 'Password' %>

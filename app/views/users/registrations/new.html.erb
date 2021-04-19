@@ -1,28 +1,18 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: '/neuneu') do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<% title 'Sign Up' %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+<%= render ContainerComponent.new(classes: "py-10") do %>
+  <%= render TitleComponent.new(tag: "h1", size: "lg", classes: "text-center pb-10") do %>
+    Sign Up
+  <% end %>
+  <%= yala_form_with model: resource, url: community_sign_up_path(community_slug: ActsAsTenant.current_tenant.slug), class: "form flex flex-col max-w-xl mx-auto" do |f| %>
+    <%= f.labelled_text_field :username, class: "input", placeholder: "keziah82", label: 'Username' %>
+    <%= f.labelled_email_field :email, class: "input", placeholder: "keziah@oasis-learning.com", label: 'Email' %>
+    <%= f.labelled_password_field :password, class: "input", placeholder: "*********", label: 'Password' %>
+    <%= f.labelled_password_field :password_confirmation, class: "input", placeholder: "*********", label: 'Password Confirmation' %>
+    <%= f.submit 'Sign Up', class: "btn-success my-4" %>
+  <% end %>
 <% end %>
 
 <%= render "users/shared/links" %>

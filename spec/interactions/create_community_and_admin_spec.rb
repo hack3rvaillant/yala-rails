@@ -3,12 +3,12 @@
 require "spec_helper"
 require "rails_helper"
 
-RSpec.describe CreateCommunityAndFirstUser do
+RSpec.describe CreateCommunityAndAdmin do
   context "When all the required arguments are given" do
     let(:params) {
       {
         name: "srta",
-        subdomain: "sart",
+        slug: "sart",
         username: "sart",
         email: "toto@toto.com",
         password: "satrssrarta"
@@ -43,47 +43,47 @@ RSpec.describe CreateCommunityAndFirstUser do
     end
 
     it "gives an admin role to the user on the community she just created" do
-      expect(returned_user.has_role? :admin, returned_community).to be true
+      expect(returned_user.has_role?(:admin, returned_community)).to be true
     end
 
     it "does no gives an admin role to the user on another community" do
-      expect(returned_user.has_role? :admin, random_community).to be false
+      expect(returned_user.has_role?(:admin, random_community)).to be false
     end
   end
 
   context "When name is missing" do
     it "Is invalid" do
-      expect(described_class.new(name: "", subdomain: "sart", username: "sart", email: "toto@toto.com", password: "satrssrarta")).to be_invalid
+      expect(described_class.new(name: "", slug: "sart", username: "sart", email: "toto@toto.com", password: "satrssrarta")).to be_invalid
     end
   end
 
-  context "When subdomain is missing" do
+  context "When slug is missing" do
     it "Is invalid" do
-      expect(described_class.new(name: "srta", subdomain: "", username: "sart", email: "toto@toto.com", password: "satrssrarta")).to be_invalid
+      expect(described_class.new(name: "srta", slug: "", username: "sart", email: "toto@toto.com", password: "satrssrarta")).to be_invalid
     end
   end
 
   context "When username is missing" do
     it "Is invalid" do
-      expect(described_class.new(name: "srta", subdomain: "sart", username: "", email: "toto@toto.com", password: "satrssrarta")).to be_invalid
+      expect(described_class.new(name: "srta", slug: "sart", username: "", email: "toto@toto.com", password: "satrssrarta")).to be_invalid
     end
   end
 
   context "When email is missing" do
     it "Is invalid" do
-      expect(described_class.new(name: "srta", subdomain: "sart", username: "sart", email: "", password: "satrssrarta")).to be_invalid
+      expect(described_class.new(name: "srta", slug: "sart", username: "sart", email: "", password: "satrssrarta")).to be_invalid
     end
   end
 
   context "When password is missing" do
     it "Is invalid" do
-      expect(described_class.new(name: "srta", subdomain: "sart", username: "sart", email: "toto@toto.com", password: "")).to be_invalid
+      expect(described_class.new(name: "srta", slug: "sart", username: "sart", email: "toto@toto.com", password: "")).to be_invalid
     end
   end
 
   context "When email is not in the right format" do
     it "Is invalid" do
-      expect(described_class.new(name: "srta", subdomain: "sart", username: "sart", email: "sratrs", password: "satrssrarta")).to be_invalid
+      expect(described_class.new(name: "srta", slug: "sart", username: "sart", email: "sratrs", password: "satrssrarta")).to be_invalid
     end
   end
 end

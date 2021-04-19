@@ -10,15 +10,6 @@ module MenuHelper
       {
         label: "About",
         path: "/about"
-      }, {
-        label: "Contact",
-        path: "/contact"
-      }, {
-        label: "Home",
-        path: "/"
-      }, {
-        label: "Sign Up",
-        path: "/users/sign_up"
       }
     ]
 

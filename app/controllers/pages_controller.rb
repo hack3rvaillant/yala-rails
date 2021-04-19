@@ -6,6 +6,6 @@ class PagesController < ApplicationController
 
   def about
     text = File.open(Rails.root.join("app", "views", "pages", "about.md")).read
-    @content = Kramdown::Document.new(text, syntax_highlighter: :coderay, syntax_highlighter_opts: { css: true }).to_html
+    @content = Kramdown::Document.new(text, syntax_highlighter: :coderay, syntax_highlighter_opts: {css: true}).to_html
   end
 end

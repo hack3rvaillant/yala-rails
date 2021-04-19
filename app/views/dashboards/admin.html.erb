@@ -1,9 +1,0 @@
-<%= title 'Admin' %>
-<%= render ContainerComponent.new do %>
-  <%= render SectionComponent.new() do %>
-    <p>Welcome <%= @user.username %> on <%= @community.name %> Learning Community</p>
-    <p>Your are now the administrator</p>
-    <p>Before continuing we need a few informations</p>
-  <% end %>
-  <%= link_to  "Next", admin_path %>
-<% end %>

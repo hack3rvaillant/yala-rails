@@ -1,0 +1,15 @@
+<%= title 'Admin' %>
+<%= render ContainerComponent.new do %>
+  <%= render SectionComponent.new() do %>
+    <p>Welcome <%= current_user.username %> on <%= @community.name %> Learning Community</p>
+    <p>Your are now the administrator</p>
+    <p>Before continuing we need a few informations</p>
+  <% end %>
+
+  <%= yala_form_with model: @community, url: community_path(@community), scope: :community, class: "form flex flex-col max-w-xl mx-auto" do |f| %>
+    <%= f.labelled_text_field :name, class: "input", placeholder: "Oasis Learning", label: 'Name' %>
+    <%= f.labelled_text_field :slug, class: "input", placeholder: "oasis-learning", label: 'Slug (must be unique)' %>
+    <%= f.labelled_text_field :custom_domain, class: "input", placeholder: "www.oasis-learning.com", label: 'Custom Domain' %>
+    <%= f.submit 'Update', class: "btn-success my-4" %>
+  <% end %>
+<% end %>
