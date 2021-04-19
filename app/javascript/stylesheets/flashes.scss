@@ -1,0 +1,13 @@
+.flash {
+  @apply block bg-brand-lite px-8 py-4 text-white
+}
+
+.flash.notice {
+  @apply bg-info
+}
+.flash.alert {
+  @apply bg-error
+}
+.flash.success {
+  @apply bg-success
+}

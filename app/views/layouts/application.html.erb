@@ -20,7 +20,7 @@
     <%= render NavbarComponent.new(user: current_user, main_menu_items: main_menu_items) %>
     <% flashes.each do |f| %>
       <% if f[:content] %>
-        <p class=<%= f[:content] %>><%= f[:content] %></p>
+        <p class="flash <%= f[:type] %>"><%= f[:content] %></p>
       <% end %>
     <% end %>
     <%= yield %>
