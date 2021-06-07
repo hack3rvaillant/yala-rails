@@ -6,9 +6,18 @@ class YalaFormBuilder < ActionView::Helpers::FormBuilder
   def labelled_text_field(attribute, args = {})
     @template.content_tag(:div, class: "form-group") do
       label(attribute, args[:label], class: "label") +
-        text_field(attribute, merge_args(attribute, args)) +
-        display_errors(attribute)
+        text_field(attribute, merge_args(attribute, args))
     end
+  end
+
+  def text_field(attribute, args = {})
+    super +
+      display_errors(attribute)
+  end
+
+  def text_area(attribute, args = {})
+    super +
+      display_errors(attribute)
   end
 
   def labelled_email_field(attribute, args = {})
