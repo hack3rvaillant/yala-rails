@@ -1,0 +1,28 @@
+<%= title @course.title %>
+<%= render ContainerComponent.new do %>
+  <%= render SectionComponent.new(layout: :center) do %>
+    <%= render TitleComponent.new(tag: "h1", size: "lg", classes: "text-center pb-10") do %>
+      <%= @course.title %>
+    <% end %>
+    <%= @course.description %>
+    <% if @course.sections.any? %>
+      <ul>
+        <% @course.sections.order(created_at: :asc).each do |section| %>
+          <li>
+            <%= link_to community_section_path(community_slug: params[:community_slug], id: section.id) do %>
+              <%= render TitleComponent.new(size: "sm", tag: "h2") do %>
+                <%= section.title %>
+              <% end %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+    <div>
+      <%= yala_form_with model: @course, url: community_course_path(community_slug: params[:community_slug], id: params[:id]), class: "form flex flex-col max-w-xl mx-auto" do |f| %>
+        <%= f.text_field "sections_attributes[][title]", class: "input", placeholder: "What is the section title" %>
+        <%= f.submit 'Add a section', class: "btn-success my-4" %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

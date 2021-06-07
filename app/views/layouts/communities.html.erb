@@ -21,15 +21,14 @@
     Communities Layout
 
     <div>
-      <%= link_to  "Sign Up", community_sign_up_path(community_slug: ActsAsTenant.current_tenant.slug) %>
-      <%= link_to  "Login", community_login_path(community_slug: ActsAsTenant.current_tenant.slug) %>
+      <%= link_to  "Sign Up", community_sign_up_path(community_slug: ActsAsTenant.current_tenant.slug), class: "btn btn-info" %>
+      <%= link_to  "Login", community_login_path(community_slug: ActsAsTenant.current_tenant.slug), class: "btn btn-info" %>
+      <% if user_signed_in? %>
+        <%= link_to  "Profile", community_profile_path(community_slug: ActsAsTenant.current_tenant.slug), class: "btn btn-info" %>
+      <% end %>
     </div>
 
-    <% flashes.each do |f| %>
-      <% if f[:content] %>
-        <p class="<%= f[:content] %>"><%= f[:content] %></p>
-      <% end %>
-    <% end %>
+    <%= render FlashComponent.new %>
     <%= yield %>
   </body>
 </html>

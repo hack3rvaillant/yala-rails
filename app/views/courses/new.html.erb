@@ -1,0 +1,13 @@
+<%= title "Create a course" %>
+
+<%= render ContainerComponent.new(classes: "py-10") do %>
+  <%= render TitleComponent.new(tag: "h1", size: "lg", classes: "text-center pb-10") do %>
+    Create a course
+  <% end %>
+<% end %>
+
+<%= yala_form_with model: @course, url: community_courses_path(community_slug: @course.community.slug), class: "form flex flex-col max-w-xl mx-auto" do |f| %>
+  <%= f.text_field :title, class: "input", placeholder: "What's the title of your course" %>
+  <%= f.text_area :description, class: "input", placeholder: "Give a short description of your course" %>
+  <%= f.submit 'Create my course', class: "btn-success my-4" %>
+<% end %>
