@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get "users/show"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
   root to: "pages#home"
   get "/about", to: "pages#about"
 
@@ -17,7 +15,9 @@ Rails.application.routes.draw do
   resources :communities,
     param: :slug,
     only: %i[new create update show edit],
-    path_names: {edit: "admin"} do
+    path_names: { edit: "admin" } do
+
+    # Devise routes
     devise_scope :user do
       get "/login", to: "users/sessions#new", as: :login
       post "/login", to: "users/sessions#create"
@@ -28,6 +28,13 @@ Rails.application.routes.draw do
       get "/passwords/new", to: "devise/passwords#new", as: :forgot_password
     end
 
+    # Users routes
     get "/profile", to: "users#edit"
+    resources :users,
+      only: %i[update]
+
+    # Courses routes
+    resources :courses, only: %i[new create show update]
+    resources :sections, only: %i[show update]
   end
 end
