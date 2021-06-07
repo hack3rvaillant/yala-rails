@@ -15,8 +15,7 @@ Rails.application.routes.draw do
   resources :communities,
     param: :slug,
     only: %i[new create update show edit],
-    path_names: { edit: "admin" } do
-
+    path_names: {edit: "admin"} do
     # Devise routes
     devise_scope :user do
       get "/login", to: "users/sessions#new", as: :login

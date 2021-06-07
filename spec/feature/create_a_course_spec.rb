@@ -21,20 +21,20 @@ RSpec.describe "Create a course", type: :feature do
           expect(page).to have_content("Create a course")
 
           # Create the course
-          fill_in('course[title]', with: title)
-          fill_in('course[description]', with: desc)
+          fill_in("course[title]", with: title)
+          fill_in("course[description]", with: desc)
           click_button
           expect(page).to have_current_path(community_course_path(community_slug: community.slug, id: Course.last.id))
           expect(page).to have_content title
           expect(page).to have_content desc
 
           # Create first section
-          fill_in('course[sections_attributes[][title]]', with: first_section_title)
+          fill_in("course[sections_attributes[][title]]", with: first_section_title)
           click_on "Add a section"
           expect(page).to have_content first_section_title
 
           # Create second section
-          fill_in('course[sections_attributes[][title]]', with: second_section_title)
+          fill_in("course[sections_attributes[][title]]", with: second_section_title)
           click_on "Add a section"
           expect(page).to have_content second_section_title
 
@@ -49,14 +49,14 @@ RSpec.describe "Create a course", type: :feature do
             )
           )
 
-          fill_in('section[challenges_attributes[][title]]', with: 'Challenge number one title')
-          fill_in('section[challenges_attributes[][description]]', with: 'Challenge number one description')
-          select 'ar', from: 'section[challenges_attributes[][language]]'
+          fill_in("section[challenges_attributes[][title]]", with: "Challenge number one title")
+          fill_in("section[challenges_attributes[][description]]", with: "Challenge number one description")
+          select "ar", from: "section[challenges_attributes[][language]]"
           click_button
 
-          fill_in('section[challenges_attributes[][title]]', with: 'Challenge number two title')
-          fill_in('section[challenges_attributes[][description]]', with: 'Challenge number two description')
-          select 'ar', from: 'section[challenges_attributes[][language]]'
+          fill_in("section[challenges_attributes[][title]]", with: "Challenge number two title")
+          fill_in("section[challenges_attributes[][description]]", with: "Challenge number two description")
+          select "ar", from: "section[challenges_attributes[][language]]"
           click_button
 
           expect(page).to have_content "Perfect !"

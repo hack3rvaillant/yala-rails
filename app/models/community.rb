@@ -3,7 +3,7 @@ class Community < ApplicationRecord
   validates :name, presence: true
   validates :slug, presence: true
   validates :slug, uniqueness: true
-  validates :slug, exclusion: { in: Slug.forbidden }
+  validates :slug, exclusion: {in: Slug.forbidden}
 
   has_many :users, dependent: :destroy
 

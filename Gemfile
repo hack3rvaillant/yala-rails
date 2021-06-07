@@ -46,7 +46,6 @@ gem "rolify"
 gem "kramdown-syntax-coderay", "~> 1.0"
 gem "coderay", "~> 1.1"
 
-
 group :development, :test do
   gem "capybara", ">= 3.26"
   gem "factory_bot_rails"

@@ -10,7 +10,6 @@ RSpec.describe "Login", type: :feature do
   let(:community) { create(:community, slug: "douar") }
   let!(:user) { create(:user, community: community, password: password, email: email) }
 
-
   context "As a signed up user" do
     describe "I can  Login to my learning Community" do
       it "So that I can start my learning journey" do

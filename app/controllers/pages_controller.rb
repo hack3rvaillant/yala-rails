@@ -1,4 +1,4 @@
-require 'kramdown-syntax-coderay'
+require "kramdown-syntax-coderay"
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home about]
   skip_before_action :find_and_set_current_tenant
@@ -14,7 +14,7 @@ class PagesController < ApplicationController
         css: :class,
         line_numbers: :inline,
         default_lang: "ruby"
-      },
+      }
     ).to_html
   end
 end

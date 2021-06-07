@@ -20,12 +20,12 @@ class CoursesController < ApplicationController
   def update
     if @course.update(course_params)
       flash.now.notice = "Great!"
-      render :show
     else
       flash.now.alert = "Something went wrong"
-      render :show
     end
+    render :show
   end
+
   private
 
   def course_params

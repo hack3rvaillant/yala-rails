@@ -5,5 +5,5 @@ class Challenge < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :language, presence: true
-  validates :language, inclusion: { in: Language.all }
+  validates :language, inclusion: {in: Language.all}
 end

@@ -7,9 +7,9 @@ class SectionsController < ApplicationController
 
   def update
     if @section.update(section_params)
-      flash.notice =  "Perfect !"
+      flash.notice = "Perfect !"
     else
-      flash.alert =  "Something wrong"
+      flash.alert = "Something wrong"
     end
     render :show
   end
@@ -28,4 +28,3 @@ class SectionsController < ApplicationController
     @section = Section.includes(:challenges).find(params[:id])
   end
 end
-
