@@ -2,7 +2,6 @@ A quel(s) besoin(s) transversal(aux) contribuez-vous sur le thème "Eduquer au n
 
 - Lutte contre l’illectronisme
 - Favoriser l’inclusion numérique
-- 
 
 En quoi le produit/service proposé répond-il, de façon innovante, à un problème non ou mal résolu par vos futurs cibles ?
 

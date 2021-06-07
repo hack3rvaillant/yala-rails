@@ -51,3 +51,5 @@ coverage/*
 
 app/javascript/channels/consumer.js
 app/javascript/channels/index.js
+
+*.md
