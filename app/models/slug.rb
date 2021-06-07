@@ -12,4 +12,10 @@ class Slug
     feed
     contact
   ]
+
+  class << self
+    def forbidden
+      BLACKLIST
+    end
+  end
 end
