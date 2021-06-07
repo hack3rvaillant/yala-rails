@@ -1,3 +1,4 @@
+require 'kramdown-syntax-coderay'
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home about]
   skip_before_action :find_and_set_current_tenant
@@ -6,6 +7,14 @@ class PagesController < ApplicationController
 
   def about
     text = File.open(Rails.root.join("app", "views", "pages", "about.md")).read
-    @content = Kramdown::Document.new(text, syntax_highlighter: :coderay, syntax_highlighter_opts: {css: true}).to_html
+    @content = Kramdown::Document.new(
+      text,
+      syntax_highlighter: :coderay,
+      syntax_highlighter_opts: {
+        css: :class,
+        line_numbers: :inline,
+        default_lang: "ruby"
+      },
+    ).to_html
   end
 end
