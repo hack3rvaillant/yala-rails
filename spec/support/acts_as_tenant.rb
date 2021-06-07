@@ -7,7 +7,7 @@ RSpec.configure do |config|
   config.before(:each) do |example|
     if example.metadata[:type] == :request
       # Set the `test_tenant` value for integration tests
-      ActsAsTenant.test_tenant = $default_community # standard:disable Style/GlobalVars
+      # ActsAsTenant.test_tenant = $default_community # standard:disable Style/GlobalVars
     else
       # Otherwise just use current_tenant
       ActsAsTenant.current_tenant = $default_community # standard:disable Style/GlobalVars
