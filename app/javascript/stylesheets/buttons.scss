@@ -1,5 +1,5 @@
 .btn {
-  @apply items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg md:py-4 md:text-lg md:px-10;
+  @apply inline-block items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg md:py-4 md:text-lg md:px-10;
 
   &-brand {
     @extend .btn;
@@ -23,6 +23,6 @@
 
   &-info {
     @extend .btn;
-    @apply text-info bg-info-lite;
+    @apply text-info-darker bg-info-lite hover:bg-info;
   }
 }

@@ -1,6 +1,9 @@
 .title {
   @apply font-extrabold text-black;
-  @apply text-3xl sm:text-xl sm:tracking-tight lg:text-4xl;
+  @apply sm:text-xl sm:tracking-tight;
+  @apply text-3xl;
+  @apply md:text-3xl;
+  @apply lg:text-4xl;
 
   &-xl {
     @extend .title;
