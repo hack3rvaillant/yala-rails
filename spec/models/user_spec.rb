@@ -4,6 +4,12 @@ require "spec_helper"
 require "rails_helper"
 
 RSpec.describe User do
+  around(:each) do |example|
+    ActsAsTenant.with_tenant(create(:community)) do
+      example.run
+    end
+  end
+
   describe "validations" do
     it { should validate_presence_of(:username) }
     it { should validate_presence_of(:email) }
@@ -30,10 +36,12 @@ RSpec.describe User do
       let(:current_community) { create(:community, id: 43, slug: "hameauxlegers", name: "Hameaux Légers") }
       let(:user) { create(:user, email: "same@email.com", community: ActsAsTenant.current_tenant) }
       it "should be valid" do
-        ActsAsTenant.current_tenant = other_community
-        user
-        ActsAsTenant.current_tenant = current_community
-        expect(build(:user, email: "same@email.com", community: current_community)).to be_valid
+        ActsAsTenant.with_tenant(other_community) do
+          user
+        end
+        ActsAsTenant.with_tenant(current_community) do
+          expect(build(:user, email: "same@email.com", community: current_community)).to be_valid
+        end
       end
     end
 
@@ -41,14 +49,15 @@ RSpec.describe User do
       let(:same_community) { create(:community, id: 42, slug: "douar", name: "Douar Tech") }
       let(:user) { create(:user, email: "same@email.com", community: ActsAsTenant.current_tenant) }
       it "should be valid" do
-        ActsAsTenant.current_tenant = same_community
-        user
-        expect(build(:user, email: "same@email.com", community: same_community)).to be_invalid
+        ActsAsTenant.with_tenant(same_community) do
+          user
+          expect(build(:user, email: "same@email.com", community: same_community)).to be_invalid
+        end
       end
     end
   end
 
-  describe "has a valid factory" do
-    it { expect(build(:user)).to be_valid }
+  it 'has a valid factory' do
+    expect(build(:user)).to be_valid
   end
 end

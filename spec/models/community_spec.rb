@@ -4,7 +4,7 @@ require "rails_helper"
 
 RSpec.describe Community do
   it { should validate_presence_of(:slug) }
-  it { should validate_exclusion_of(:slug).in_array Slug::BLACKLIST }
+  it { should validate_exclusion_of(:slug).in_array Slug.forbidden }
   it { should validate_presence_of(:name) }
   it { should have_many(:users) }
 
