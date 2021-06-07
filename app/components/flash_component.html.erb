@@ -1,0 +1,5 @@
+<% flashes.each do |f| %>
+  <% if f[:content] %>
+    <p class="flash <%= f[:type] %>"><%= f[:content] %></p>
+  <% end %>
+<% end %>
