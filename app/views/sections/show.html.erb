@@ -1,0 +1,27 @@
+<%= title "Section #{@section.title}" %>
+<%= render TitleComponent.new(tag: "h1") do %>
+  <%= @section.title %>
+<% end %>
+
+<% if @section.challenges.any? %>
+  <% @section.challenges.each do |challenge| %>
+    <div draggable="true">
+      <div>
+        <%= challenge.title %>
+      </div>
+      <div>
+        <%= challenge.description %>
+      </div>
+      <div>
+        <%= challenge.language %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<%= yala_form_with model: @section, url: community_section_path(community_slug: params[:community_slug], id: params[:id]), class: "form flex flex-col max-w-xl mx-auto" do |f| %>
+  <%= f.text_field "challenges_attributes[][title]", class: "input", placeholder: "What is the challenge title" %>
+  <%= f.text_area "challenges_attributes[][description]", class: "input", placeholder: "What is the challenge description" %>
+  <%= f.select "challenges_attributes[][language]", Language.all, class: "input", placeholder: "What is the challenge language" %>
+  <%= f.submit 'Add a section', class: "btn-success my-4" %>
+<% end %>

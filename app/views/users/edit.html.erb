@@ -5,7 +5,7 @@
     Profile
   <% end %>
 
-  <%= yala_form_with model: @user, url: community_profile_path(@user.community), class: "form flex flex-col max-w-xl mx-auto" do |f| %>
+  <%= yala_form_with model: [@user.community, @user], class: "form flex flex-col max-w-xl mx-auto" do |f| %>
     <%= f.labelled_text_field :username, class: "input", placeholder: "keziah82", label: 'Username' %>
     <%= f.labelled_email_field :email, class: "input", placeholder: "keziah@oasis-learning.com", label: 'Email' %>
     <%= f.labelled_password_field :password, class: "input", placeholder: "*********", label: 'Password' %>
