@@ -40,3 +40,13 @@ yarn-debug.log*
 node_modules
 .env
 coverage/*
+
+#yarn v2
+
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
