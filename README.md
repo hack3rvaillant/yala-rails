@@ -11,6 +11,9 @@
 
 ## Installing / Getting started
 
+
+Make sure your version of yarn is > 2.0
+If not `yarn set version berry`
 Here's a brief intro about what a developer must do in order to start developing
 the project further:
 
@@ -22,8 +25,13 @@ rails db:migrate
 bundle install
 yarn install
 ```
+How to start the project
 
-And state what happens step-by-step.
+We use overmind to ease the launch of all the processes
+
+```sh
+overmind start -f Procfile.dev -p 3000
+```
 
 ## Testing
 
