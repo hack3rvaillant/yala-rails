@@ -33,7 +33,7 @@ Rails.application.routes.draw do
       only: %i[update]
 
     # Courses routes
-    resources :courses, only: %i[new create show update]
+    resources :courses, only: %i[index new create show update]
     resources :sections, only: %i[show update]
   end
 end

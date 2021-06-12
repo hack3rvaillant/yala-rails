@@ -1,6 +1,10 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: %i[show update]
 
+  def index
+    @courses = Course.all.order(:created_at)
+  end
+
   def new
     @course = Course.new
   end

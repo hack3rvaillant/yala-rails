@@ -1,0 +1,15 @@
+<% if @courses&.any? %>
+  <ul>
+    <%= @courses.each do |course| %>
+      <li>
+        <div>
+          <h2><%= course.title %></h2>
+          <p><%= course.description %></p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  No courses created yet
+  <%= link_to  "Create the first course !", new_community_course_path %>
+<% end %>
